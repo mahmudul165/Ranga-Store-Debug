@@ -289,14 +289,15 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+//load json data from Api url and convert to object
 const detailToShow = (id) => {
   url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayModal(data));
+    .then((data) => displayDetailInfo(data));
 };
-
-const displayModal = (data) => {
+// dasplay details data
+const displayDetailInfo = (data) => {
   const displayDetails = document.getElementById("detail-info");
   console.log(data.category);
   displayDetails.innerHTML = `<div >
