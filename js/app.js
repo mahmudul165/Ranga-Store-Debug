@@ -210,26 +210,28 @@ const loadProducts = () => {
   showProducts(data);
 };
 
-// show all product in UI
+// show all product  data in UI
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `<div class="card-position single-product">
       <div>
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      <small  ><span class="rate-button">Rating Point:<b> ${product.rating.rate} </b></span><span class="ml-2">Rating Point: <b>${product.rating.count}</b></span></small>
       <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="rate-button buy-now btn btn-primary">add to cart</button>
+      <button onclick="detailToShow(${product.id})"id="details-btn" class="rate-button btn btn-warning">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+// addToCart event listener funcion
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -242,18 +244,19 @@ const addToCart = (id, price) => {
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
-  // INT HOBE CHANGE KORCHI
+  // console.log(converted);
+
   return converted;
 };
 
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
+  // convert to  float value
   const convertPrice = parseFloat(value);
-  //parseFloat("10.547892").toFixed(2)
   const total = convertedOldPrice + convertPrice;
+  // take up to  2 decimal value upter point
   document.getElementById(id).innerText = total.toFixed(2);
-  //Math.round(total);
 };
 
 // set innerText function
@@ -281,12 +284,25 @@ loadProducts();
 //grandTotal update function
 const updateTotal = () => {
   const grandTotal =
-    parseFloat(document.getElementById("price").innerText) +
-    parseFloat(document.getElementById("delivery-charge").innerText) +
-    parseFloat(document.getElementById("total-tax").innerText);
-  //getInputValue("price") +
-  // getInputValue("delivery-charge") +
-  // getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
-  //toFixed(2);
+    getInputValue("price") +
+    getInputValue("delivery-charge") +
+    getInputValue("total-tax");
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
+};
+const detailToShow = (id) => {
+  url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayModal(data));
+};
+
+const displayModal = (data) => {
+  const displayDetails = document.getElementById("detail-info");
+  console.log(data.category);
+  displayDetails.innerHTML = `<div >
+      <h2 class="text-primary">ID:${data.id}</h2>
+     <h3 class="text-danger">${data.title}</h3>
+     <h5 class="text-warning">${data.category}</h5>
+     <p>${data.description}</p>
+   </div>`;
 };
