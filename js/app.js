@@ -317,7 +317,7 @@ const displayDetailInfo = (data) => {
             </div>            
           </div>`;
 };
-// ALERT TO bUTTON
+// ALERT added to BUY NOW button
 
 const buyAlert = () => {
   const totalPriceShow = document.getElementById("total").innerText;
@@ -330,6 +330,6 @@ loadProducts();
 /*
 git code: 
  'https://github.com/Programming-Hero-Web-Course4/ranga-store-fix-mahmudul165'
-live demo: 
+live project preview: 
 "https://dhaka-store-assingment-7.netlify.app/"
  */
