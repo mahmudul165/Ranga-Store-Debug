@@ -301,16 +301,30 @@ const detailToShow = (id) => {
 const displayDetailInfo = (data) => {
   const displayDetails = document.getElementById("detail-info");
   console.log(data.category);
-  displayDetails.innerHTML = `<div >
-      <h2 class="text-primary">ID:${data.id}</h2>
-     <h3 class="text-danger">${data.title}</h3>
-     <h5 class="text-warning">${data.category}</h5>
-     <p>${data.description}</p>
-   </div>`;
+
+  displayDetails.innerHTML = `  
+  <div class=" col-12 col-md-3 col-lg-3 card  p-2">
+            <div class="text-center  card-header border-bottom-0 bg-white">
+              <img width="149px" height="149px" class="  p-3" src="${data.image}" alt="">
+            </div>
+            <div class="card-body my-2">
+              <h4 class="text-center text-color card-title my-2">${data.title}</h4>
+                <div class="my-3">
+                <h5 class="text-center text-warning">${data.category}</h5>                   
+                </div>
+                <p class="text-info my-3"> ${data.description}</p>
+                          
+            </div>            
+          </div>`;
+};
+// ALERT TO bUTTON
+const buyAlert = () => {
+  alert("please wait i will updated you shortly");
 };
 loadProducts();
 /*
 git code: 
  'https://github.com/Programming-Hero-Web-Course4/ranga-store-fix-mahmudul165'
 live demo: 
-"https://dhaka-store-assingment-7.netlify.app/" */
+"https://dhaka-store-assingment-7.netlify.app/"
+ */

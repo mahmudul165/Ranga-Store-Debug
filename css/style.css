@@ -70,7 +70,7 @@ body {
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
   margin-right: 30px;
-  position: fixed;
+  position: relative;
 }
 .cart-main {
   padding-right: 30px;
@@ -90,7 +90,6 @@ body {
     box-shadow: 10px 10px 20px gray;
     border-radius: 3px;
     margin-right: 30px;
-    position: fixed;
   }
   .cart-main {
     padding-right: 10px;
@@ -103,6 +102,30 @@ body {
   margin-left: 20px;
   margin-right: 20px;
   padding: 5px;
+}
+/* style details info */
+.btn-color {
+  color: #fff !important;
+  background-color: #e76f51 !important;
+  border-color: #e76f51 !important;
+}
+.text-color {
+  color: #e76f51 !important;
+}
+/* @media (min-width: 992px) .navbar-expand-lg {
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+} */
+nav {
+  justify-content: flex-end !important;
+}
+/* navbar toggle color */
+.toggler {
+  color: goldenrod;
+}
+/* grayscale image */
+.convert-grey-image {
+  filter: grayscale(100%);
 }
 /* responsive for all device */
 @media only screen and (max-width: 468px) {
