@@ -1,4 +1,5 @@
 const loadProducts = () => {
+  //array of object data
   const data = [
     {
       id: 1,
@@ -217,14 +218,14 @@ const showProducts = (products) => {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="card-position single-product">
-      <div>
+    div.innerHTML = `<div class=" card-position single-product">
+      <div class="product-styles">
     <img class="product-image" src=${image}></img>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <small  ><span class="rate-button">Rating Point:<b> ${product.rating.rate} </b></span><span class="ml-2">Rating Count: <b>${product.rating.count}</b></span></small>
-      <h2>Price: $ ${product.price}</h2>
+      <small  ><span class="rate-button">Rating Point:<b> ${product.rating.rate} </b></span><span class=" ml-2">Ratings: <b>${product.rating.count}</b></span></small>
+      <h5 class="product-price">Price: $ ${product.price}</h5>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="rate-button buy-now btn btn-primary">add to cart</button>
       <button onclick="detailToShow(${product.id})"id="details-btn" class="rate-button btn btn-warning">Details</button></div>
       `;
@@ -280,7 +281,7 @@ const updateTaxAndCharge = () => {
     setInnerText("total-tax", priceConverted * 0.4);
   }
 };
-loadProducts();
+
 //grandTotal update function
 const updateTotal = () => {
   const grandTotal =
@@ -307,3 +308,9 @@ const displayDetailInfo = (data) => {
      <p>${data.description}</p>
    </div>`;
 };
+loadProducts();
+/*
+git code: 
+ 'https://github.com/Programming-Hero-Web-Course4/ranga-store-fix-mahmudul165'
+live demo: 
+"https://dhaka-store-assingment-7.netlify.app/" */
