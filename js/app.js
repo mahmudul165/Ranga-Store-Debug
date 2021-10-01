@@ -303,14 +303,14 @@ const displayDetailInfo = (data) => {
   console.log(data.category);
 
   displayDetails.innerHTML = `  
-  <div class=" col-12 col-md-3 col-lg-3 card  p-2">
+  <div class=" single-product   col-12 col-md-3 col-lg-3 card  p-2">
             <div class="text-center  card-header border-bottom-0 bg-white">
               <img width="149px" height="149px" class="  p-3" src="${data.image}" alt="">
             </div>
             <div class="card-body my-2">
               <h4 class="text-center text-color card-title my-2">${data.title}</h4>
                 <div class="my-3">
-                <h5 class="text-center text-warning">${data.category}</h5>                   
+                <h4 class="text-center text-black-50">Category: ${data.category}</h4>                   
                 </div>
                 <p class="text-info my-3"> ${data.description}</p>
                           
@@ -318,8 +318,13 @@ const displayDetailInfo = (data) => {
           </div>`;
 };
 // ALERT TO bUTTON
+
 const buyAlert = () => {
-  alert("please wait i will updated you shortly");
+  const totalPriceShow = document.getElementById("total").innerText;
+  console.log(totalPriceShow);
+  alert(
+    `please wait i will updated you shortly.Now your Total price is: $${totalPriceShow}`
+  );
 };
 loadProducts();
 /*
